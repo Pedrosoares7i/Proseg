@@ -1,0 +1,493 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    background-color: #fff;
+}
+
+
+#LogoHome {
+    width: 200px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    background-color: #00B3FF;
+    padding: 10px 25px;
+    border-radius: 50px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+
+button {
+    background-color: #00B3FF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: #0095d9;
+}
+
+/* Informações da Home */
+
+#tituloHome {
+    font-weight: bold;
+    max-width: 300px;
+    margin: 30px;
+}
+
+#subHome {
+    font-weight: 500;
+    max-width: 300px;
+    margin: 30px;
+}
+
+.beneficios {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 400px;
+    margin: 30px;
+}
+
+.beneficio {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.beneficio:hover {
+    transform: translateY(-3px);
+}
+
+.beneficio img {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.beneficio p {
+    margin: 0;
+    color: #333;
+    font-weight: 500;
+}
+
+.imagem-topo {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+
+/* arquivo servicos.html */
+
+.servicos-secao {
+    text-align: center;
+}
+
+.servicos-secao::after {
+    content: "";
+    display: block;
+    width: 264px;
+    height: 6px;
+    border-radius: 10px;
+    margin: 8px auto 0 auto;
+}
+
+.servicos {
+    display: flex;
+    flex-direction: row;
+}
+
+.servicos2 {
+    display: flex;
+    flex-direction: row;
+}
+
+.cam {
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    width: 397px;
+    height: 342px;
+    margin: 50px 50px 10px 50px;
+    padding: 0px 20px;
+}
+
+.Camera {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    background-color: #66D2FF;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Começo do Arquivo Clientes.html */
+
+* {
+    box-sizing: border-box
+}
+
+/* Slideshow container */
+.slideshow-container {
+    max-width: 1000px;
+    position: relative;
+    margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+}
+
+/* Next & previous buttons */
+.prev,
+.next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    margin-top: -22px;
+    padding: 16px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.text {
+    color: #f2f2f2;
+    font-size: 15px;
+    padding: 8px 12px;
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+
+    to {
+        opacity: 1
+    }
+}
+
+/* Começo do arquivo contato.html */
+
+/* HEADER IGUAL AO MODELO */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px;
+    background-color: white;
+}
+
+#LogoHome {
+    width: 160px;
+}
+
+nav {
+    background: #00B3FF;
+    padding: 10px 30px;
+    border-radius: 30px;
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+/* ÁREA CENTRAL */
+
+.conteudo {
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.card-contato {
+    width: 78%;
+    max-width: 1050px;
+    background: white;
+    border: 2px solid #bfbfbf;
+    border-radius: 10px;
+    padding: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* COLUNA ESQUERDA */
+.col-esq h2 {
+    font-size: 22px;
+    margin-bottom: 40px;
+}
+
+.info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.icone {
+    width: 65px;
+    margin-right: 20px;
+}
+
+.info h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 500;
+    color: #0095d9;
+}
+
+.info p {
+    margin: 3px 0 0;
+    font-size: 14px;
+}
+
+/* COLUNA DIREITA */
+
+.col-dir {
+    width: 350px;
+}
+
+.col-dir h2 {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+.inp {
+    width: 100%;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #d6d6d6;
+    margin-bottom: 15px;
+}
+
+select.inp {
+    color: #555;
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: linear-gradient(90deg, #00A9FF, #0080F7);
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Começo do arquivo sobre.html */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 40px;
+    background: white;
+}
+
+#LogoHome {
+    width: 160px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+    background: #00B3FF;
+    padding: 10px 30px;
+    border-radius: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+#orcamento {
+    background: #00B3FF;
+    color: white;
+    font-weight: 600;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+}
+
+/* -------- CONTEÚDO -------- */
+
+.sobre-container {
+    text-align: center;
+    padding: 40px 0 60px 0;
+}
+
+.titulo {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.linha {
+    width: 170px;
+    height: 5px;
+    background: #00B3FF;
+    border-radius: 5px;
+    margin: 0 auto 25px auto;
+}
+
+.subtitulo {
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 40px;
+    line-height: 36px;
+}
+
+.subtitulo strong {
+    font-weight: 700;
+}
+
+/* -------- CAIXA DE TEXTO -------- */
+
+.texto-box {
+    width: 78%;
+    max-width: 1050px;
+    margin: 0 auto;
+    border: 2px solid #bfbfbf;
+    border-radius: 15px;
+    padding: 30px 40px;
+    text-align: left;
+}
+
+.texto-box p {
+    font-size: 16px;
+    line-height: 30px;
+}
+
+/* Começo do arquivo avaliacao.html */
+
+.titulo {
+    text-align: center;
+    margin: 0 auto 40px auto;
+    width: 100%;
+    }
+    .titulo h2 {
+    font-size: 40px;
+    font-weight: 700;
+    }
+    .titulo span {
+    color: #00a3ff;
+    text-decoration: underline;
+    }
+    .cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 100%;
+    }
+    .card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .card h3 {
+    margin-bottom: 5px;
+    color: #333;
+    }
+    .stars {
+    color: #009dff;
+    font-size: 20px;
+    margin-bottom: 10px;
+    }
+    .card p {
+    color: #444;
+    font-size: 14px;
+    }
