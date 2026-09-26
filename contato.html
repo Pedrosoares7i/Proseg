@@ -1,88 +1,542 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proseg - Home</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="theme-color" content="#0B1526">
+    <title>Contato — ProSeg</title>
+    <meta name="description"
+        content="Fale com a ProSeg: solicite orçamento, agende a visita técnica sem custo ou tire dúvidas sobre as soluções de segurança e energia inteligente.">
+    <meta name="author" content="Pedro Soares">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="Contato — ProSeg">
+    <meta property="og:description" content="Solicite orçamento ou agende a visita técnica sem custo. Retorno em até 1 dia útil.">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sections.css">
+    <link rel="stylesheet" href="css/contact.css">
 </head>
 
 <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-    <header>
-        <a href="index.html">
-            <img src="img/Logo ProSeg.png" alt="Logo ProSeg" id="LogoHome">
-        </a>
+    <svg class="visually-hidden" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12h16" />
+                <path d="m13.5 5.5 6.5 6.5-6.5 6.5" />
+            </symbol>
+            <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m4.6 12.4 5 5 10-11" />
+            </symbol>
+            <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 11.2v5.4M12 7.8h.01" />
+            </symbol>
+            <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6.4 3.4h3l1.5 4-2 1.5a12.2 12.2 0 0 0 6.2 6.2l1.5-2 4 1.5v3a2 2 0 0 1-2.2 2A16.6 16.6 0 0 1 4.4 5.6a2 2 0 0 1 2-2.2Z" />
+            </symbol>
+            <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.6" y="4.6" width="18.8" height="14.8" rx="2.2" />
+                <path d="m3.4 7 8.6 5.8L20.6 7" />
+            </symbol>
+            <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.8 11.6a8.4 8.4 0 0 1-12.2 7.5L3.6 20.4l1.4-5a8.4 8.4 0 1 1 15.8-3.8Z" />
+                <path d="M9 9.6c.2 2.9 2.4 5.1 5.3 5.3.5 0 .8-.3.8-.8v-.8l-1.9-.7-.8.8c-.9-.4-1.6-1.1-2-2l.8-.8-.7-1.9h-.8c-.5 0-.8.4-.8.8Z" />
+            </symbol>
+            <symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21.4s7-6.1 7-11.2a7 7 0 1 0-14 0c0 5.1 7 11.2 7 11.2Z" />
+                <circle cx="12" cy="10" r="2.6" />
+            </symbol>
+            <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3.4" y="3.4" width="17.2" height="17.2" rx="4.8" />
+                <circle cx="12" cy="12" r="4" />
+                <path d="M17 7h.01" />
+            </symbol>
+            <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7.2V12l3.2 1.8" />
+            </symbol>
+            <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3.4" y="5.4" width="17.2" height="15.2" rx="2.2" />
+                <path d="M3.4 10.2h17.2M8.2 3.4v4M15.8 3.4v4" />
+            </symbol>
+            <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13.4 2.8H6.6a2 2 0 0 0-2 2v14.4a2 2 0 0 0 2 2h10.8a2 2 0 0 0 2-2V8.6l-6-5.8Z" />
+                <path d="M13.4 2.8v5.8h6M8.4 13h7.2M8.4 16.6h5" />
+            </symbol>
+            <symbol id="i-headset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.4 15v-3a7.6 7.6 0 0 1 15.2 0v3" />
+                <path d="M19.6 16.4a3 3 0 0 1-3 3h-2.4" />
+                <rect x="2.6" y="13.4" width="3.8" height="5.4" rx="1.4" />
+                <rect x="17.6" y="13.4" width="3.8" height="5.4" rx="1.4" />
+            </symbol>
+        </defs>
+    </svg>
 
-        <nav>
-            <a href="servicos.html">Serviços</a>
-            <a href="avaliacao.html">Avaliações</a>
-            <a href="sobre.html">Sobre</a>
-            <a href="contato.html">Contatos</a>
-            <a href="clientes.html">Clientes</a>
-        </nav>
+    <header class="site-header" id="siteHeader" data-header>
+        <div class="container site-header__inner">
+            <a class="brand" href="index.html" aria-label="ProSeg, página inicial">
+                <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                    <path d="M16 3 6.5 7v7.4C6.5 19.7 10.6 24.3 16 26c5.4-1.7 9.5-6.3 9.5-11.6V7L16 3Z"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                    <path d="m11.4 15.4 3 3.1 6.4-7.4" fill="none" stroke="#F5A524" stroke-width="2.4"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="brand__name">Pro<em>Seg</em></span>
+            </a>
 
-        <button>Solicite seu Orçamento</button>
+            <nav class="nav" id="siteNav" aria-label="Navegação principal">
+                <a class="nav__link" href="index.html#solucoes">Soluções</a>
+                <a class="nav__link" href="index.html#beneficios">Benefícios</a>
+                <a class="nav__link" href="index.html#plataforma">Plataforma</a>
+                <a class="nav__link" href="index.html#processo">Como funciona</a>
+                <a class="nav__link" href="index.html#faq">Dúvidas</a>
+                <a class="nav__link nav__cta" href="contato.html" aria-current="page">Falar com especialista</a>
+            </nav>
+
+            <div class="site-header__actions">
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav"
+                    data-nav-toggle>
+                    <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+                    <span data-nav-toggle-label>Menu</span>
+                </button>
+                <a class="btn btn--primary" href="#formulario">
+                    Solicitar orçamento
+                    <svg class="btn__icon" aria-hidden="true" focusable="false">
+                        <use href="#i-arrow-right" />
+                    </svg>
+                </a>
+            </div>
+        </div>
     </header>
 
-    <!-- Formulário -->
+    <main id="conteudo">
+        <section class="page-head">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Você está em">
+                    <a href="index.html">Início</a>
+                    <span aria-hidden="true">/</span>
+                    <span aria-current="page">Contato</span>
+                </nav>
 
-    <section class="conteudo">
+                <p class="eyebrow mt-6">Contato</p>
+                <h1>Vamos entender o seu espaço antes de falar em valor</h1>
+                <p class="lead measure-lead">
+                    Descreva o que você precisa proteger e onde quer economizar. A visita técnica é sem custo e
+                    define o que faz sentido instalar no seu caso.
+                </p>
 
-        <div class="card-contato">
+                <div class="page-head__channels">
+                    <a class="channel" href="tel:+5514987654321">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-phone" />
+                        </svg>
+                        <span>(14) 98765-4321</span>
+                    </a>
+                    <a class="channel" href="mailto:contato@proseg.io">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-mail" />
+                        </svg>
+                        <span>contato@proseg.io</span>
+                    </a>
+                    <span class="channel">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-clock" />
+                        </svg>
+                        <span>Retorno em até 1 dia útil</span>
+                    </span>
+                </div>
+            </div>
+        </section>
 
-            <div class="col-esq">
-
-                <h2>Informações para contato</h2>
-
-                <div class="info">
-                    <img src="img/Iconezap.png" class="icone">
-                    <div>
-                        <h3>Telefone para contato</h3>
-                        <p>(14) 98765-4321</p>
+        <section class="section contact" aria-labelledby="form-title">
+            <div class="container contact__grid">
+                <div class="contact-form" id="formulario">
+                    <div class="contact-form__head">
+                        <h2 id="form-title">Preencha e fale com a equipe</h2>
+                        <p>Campos marcados com <span aria-hidden="true">*</span> são obrigatórios. Quanto mais
+                            detalhe você der, mais precisa fica a resposta.</p>
                     </div>
+
+                    <form data-contact-form novalidate>
+                        <div class="form-grid">
+                            <div class="field">
+                                <label class="field__label" for="nome">Nome completo <span aria-hidden="true">*</span></label>
+                                <input class="input" type="text" id="nome" name="nome" autocomplete="name"
+                                    required aria-describedby="erro-nome" placeholder="Como podemos te chamar">
+                                <p class="field__error" id="erro-nome" data-error-for="nome"></p>
+                            </div>
+
+                            <div class="field">
+                                <label class="field__label" for="whatsapp">WhatsApp <span aria-hidden="true">*</span></label>
+                                <input class="input" type="tel" id="whatsapp" name="whatsapp" autocomplete="tel"
+                                    inputmode="tel" required aria-describedby="erro-whatsapp erro-dica-whatsapp"
+                                    placeholder="(14) 98765-4321">
+                                <p class="field__error" id="erro-whatsapp" data-error-for="whatsapp"></p>
+                                <p class="field__hint" id="erro-dica-whatsapp">Com DDD, para entrarmos em contato
+                                    com você.</p>
+                            </div>
+
+                            <div class="field">
+                                <label class="field__label" for="email">E-mail <span aria-hidden="true">*</span></label>
+                                <input class="input" type="email" id="email" name="email" autocomplete="email"
+                                    required aria-describedby="erro-email" placeholder="voce@exemplo.com">
+                                <p class="field__error" id="erro-email" data-error-for="email"></p>
+                            </div>
+
+                            <div class="field">
+                                <label class="field__label" for="cidade">Cidade <span aria-hidden="true">*</span></label>
+                                <input class="input" type="text" id="cidade" name="cidade" autocomplete="address-level2"
+                                    required aria-describedby="erro-cidade dica-cidade" list="cidades" placeholder="Ex.: Bauru">
+                                <datalist id="cidades">
+                                    <option value="Bauru"></option>
+                                    <option value="Lins"></option>
+                                    <option value="Jaú"></option>
+                                    <option value="Pontal"></option>
+                                    <option value="Agudos"></option>
+                                    <option value="Lençóis Paulista"></option>
+                                </datalist>
+                                <p class="field__error" id="erro-cidade" data-error-for="cidade"></p>
+                                <p class="field__hint" id="dica-cidade">Atendemos Bauru e região.</p>
+                            </div>
+
+                            <div class="field">
+                                <label class="field__label" for="ambiente">Tipo de ambiente <span
+                                    aria-hidden="true">*</span></label>
+                                <select class="select" id="ambiente" name="ambiente" required
+                                    aria-describedby="erro-ambiente">
+                                    <option value="">Selecione</option>
+                                    <option>Residência</option>
+                                    <option>Comércio</option>
+                                    <option>Condomínio</option>
+                                    <option>Galpão ou depósito</option>
+                                    <option>Escritório</option>
+                                </select>
+                                <p class="field__error" id="erro-ambiente" data-error-for="ambiente"></p>
+                            </div>
+
+                            <div class="field" id="assunto">
+                                <label class="field__label" for="servico">Serviço de interesse <span
+                                    aria-hidden="true">*</span></label>
+                                <select class="select" id="servico" name="servico" required
+                                    aria-describedby="erro-servico">
+                                    <option value="">Selecione</option>
+                                    <option>Monitoramento 24/7</option>
+                                    <option>Câmeras de segurança</option>
+                                    <option>Cerca elétrica</option>
+                                    <option>Alarmes e sensores</option>
+                                    <option>Controle de acesso e cancelas</option>
+                                    <option>Nobreaks e energia reserva</option>
+                                    <option>Cabeamento estruturado</option>
+                                    <option>Energia inteligente</option>
+                                    <option>Ainda não sei</option>
+                                </select>
+                                <p class="field__error" id="erro-servico" data-error-for="servico"></p>
+                            </div>
+
+                            <div class="field field--full">
+                                <label class="field__label" for="mensagem">O que você precisa?</label>
+                                <textarea class="textarea" id="mensagem" name="mensagem" rows="5"
+                                    aria-describedby="dica-mensagem"
+                                    placeholder="Ex.: quero monitorar a garagem e saber quanto a área externa gasta de luz por mês."></textarea>
+                                <p class="field__hint" id="dica-mensagem">Opcional, mas ajuda a acelerar a
+                                    resposta.</p>
+                            </div>
+                        </div>
+
+                        <div class="field mt-6">
+                            <label class="checkbox" for="consentimento">
+                                <input type="checkbox" id="consentimento" name="consentimento" required
+                                    aria-describedby="erro-consentimento">
+                                <span>Autorizo a ProSeg a entrar em contato por WhatsApp, e-mail ou telefone
+                                    para responder a esta solicitação. <span aria-hidden="true">*</span></span>
+                            </label>
+                            <p class="field__error" id="erro-consentimento" data-error-for="consentimento"></p>
+                        </div>
+
+                        <div class="form-actions">
+                            <button class="btn contact-form__submit" type="submit">
+                                Enviar solicitação
+                                <svg class="btn__icon" aria-hidden="true" focusable="false">
+                                    <use href="#i-arrow-right" />
+                                </svg>
+                            </button>
+                            <p class="form-actions__note">Sem compromisso. Retorno em até 1 dia útil.</p>
+                        </div>
+
+                        <div class="form-status" role="status" aria-live="polite" data-form-status></div>
+
+                        <div class="notice mt-6">
+                            <svg aria-hidden="true" focusable="false">
+                                <use href="#i-info" />
+                            </svg>
+                            <span>
+                                <strong>Formulário de demonstração</strong>
+                                Esta é uma versão de front-end do projeto: os dados não são enviados para
+                                nenhum servidor. Em produção, este formulário se conecta ao backend da empresa.
+                            </span>
+                        </div>
+                    </form>
                 </div>
 
-                <div class="info">
-                    <img src="img/instagram.png" class="icone">
-                    <div>
-                        <h3>Nos siga no instagram</h3>
-                        <p>@prosegoficial</p>
+                <aside class="contact-aside" aria-label="Canais de atendimento e informações">
+                    <div class="aside-card">
+                        <p class="aside-card__title">Canais diretos</p>
+                        <ul class="aside-list">
+                            <li class="aside-item">
+                                <span class="aside-item__icon" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#i-chat" />
+                                    </svg>
+                                </span>
+                                <span>
+                                    <span class="aside-item__label">WhatsApp</span><br>
+                                    <a class="aside-item__value" href="tel:+5514987654321">(14) 98765-4321</a>
+                                </span>
+                            </li>
+                            <li class="aside-item">
+                                <span class="aside-item__icon" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#i-mail" />
+                                    </svg>
+                                </span>
+                                <span>
+                                    <span class="aside-item__label">E-mail</span><br>
+                                    <a class="aside-item__value" href="mailto:contato@proseg.io">contato@proseg.io</a>
+                                </span>
+                            </li>
+                            <li class="aside-item">
+                                <span class="aside-item__icon" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#i-instagram" />
+                                    </svg>
+                                </span>
+                                <span>
+                                    <span class="aside-item__label">Instagram</span><br>
+                                    <span class="aside-item__value">@proseg.oficial</span>
+                                </span>
+                            </li>
+                            <li class="aside-item">
+                                <span class="aside-item__icon" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#i-map-pin" />
+                                    </svg>
+                                </span>
+                                <span>
+                                    <span class="aside-item__label">Endereço</span><br>
+                                    <span class="aside-item__value">R. Primavera, 123<br>Bosque das Estrelas
+                                        · Bauru/SP</span>
+                                </span>
+                            </li>
+                        </ul>
                     </div>
+
+                    <div class="aside-card aside-card--dark on-dark">
+                        <p class="aside-card__title">Horários de atendimento</p>
+                        <div class="hours">
+                            <div class="hours__row">
+                                <span>Central de monitoramento</span>
+                                <span>24 horas</span>
+                            </div>
+                            <div class="hours__row">
+                                <span>Suporte e WhatsApp</span>
+                                <span>Seg a sáb · 8h–20h</span>
+                            </div>
+                            <div class="hours__row">
+                                <span>Atendimento comercial</span>
+                                <span>Seg a sex · 8h–18h</span>
+                            </div>
+                        </div>
+                        <p class="mt-5">
+                            Emergência com alarme disparado é atendida pela central, fora do horário comercial.
+                        </p>
+                    </div>
+
+                    <div class="aside-card">
+                        <p class="aside-card__title">O que você recebe</p>
+                        <ul class="perks">
+                            <li class="perk">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use href="#i-check" />
+                                </svg>
+                                <span>Visita técnica sem custo para avaliar o ambiente.</span>
+                            </li>
+                            <li class="perk">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use href="#i-check" />
+                                </svg>
+                                <span>Proposta com escopo fechado antes de qualquer decisão.</span>
+                            </li>
+                            <li class="perk">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use href="#i-check" />
+                                </svg>
+                                <span>Documentação dos equipamentos após a instalação.</span>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section section--white" aria-labelledby="next-title">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Depois do envio</p>
+                    <h2 id="next-title">O que acontece a partir de agora</h2>
+                    <p class="lead">Sem mistério e sem pressão: você sabe cada etapa antes de decidir.</p>
                 </div>
 
-                <div class="info">
-                    <img src="img/Localização.png" class="icone">
-                    <div>
-                        <h3>Venha nos visitar</h3>
-                        <p>R. Primavera - Bosque das Estrelas,<br>SP 98765-432</p>
-                    </div>
-                </div>
+                <ol class="next-steps">
+                    <li class="next-step">
+                        <div class="next-step__head">
+                            <span class="next-step__icon" aria-hidden="true">
+                                <svg focusable="false">
+                                    <use href="#i-calendar" />
+                                </svg>
+                            </span>
+                            <span class="next-step__num">PASSO 01</span>
+                        </div>
+                        <h3>Agendamento da visita</h3>
+                        <p>Confirmamos o dia e o horário por WhatsApp ou e-mail, em até 1 dia útil após o
+                            recebimento da sua solicitação.</p>
+                    </li>
+                    <li class="next-step">
+                        <div class="next-step__head">
+                            <span class="next-step__icon" aria-hidden="true">
+                                <svg focusable="false">
+                                    <use href="#i-doc" />
+                                </svg>
+                            </span>
+                            <span class="next-step__num">PASSO 02</span>
+                        </div>
+                        <h3>Proposta com escopo fechado</h3>
+                        <p>Você recebe o que é recomendado, o que é opcional e quanto cada parte custa. Sem
+                            item escondido.</p>
+                    </li>
+                    <li class="next-step">
+                        <div class="next-step__head">
+                            <span class="next-step__icon" aria-hidden="true">
+                                <svg focusable="false">
+                                    <use href="#i-headset" />
+                                </svg>
+                            </span>
+                            <span class="next-step__num">PASSO 03</span>
+                        </div>
+                        <h3>Decisão no seu tempo</h3>
+                        <p>Você decide com a proposta em mãos. Se preferir adiar ou ajustar o escopo, é
+                            tranquilo — sem compromisso.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+    </main>
 
+    <footer class="site-footer">
+        <div class="container site-footer__grid">
+            <div class="site-footer__about">
+                <a class="brand" href="index.html" aria-label="ProSeg, página inicial">
+                    <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                        <path d="M16 3 6.5 7v7.4C6.5 19.7 10.6 24.3 16 26c5.4-1.7 9.5-6.3 9.5-11.6V7L16 3Z"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                        <path d="m11.4 15.4 3 3.1 6.4-7.4" fill="none" stroke="#F5A524" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span class="brand__name">Pro<em>Seg</em></span>
+                </a>
+                <p>Soluções integradas de segurança e energia inteligente para ambientes residenciais,
+                    comerciais e condomínios.</p>
+                <div class="socials">
+                    <a href="#" aria-label="Instagram da ProSeg">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-instagram" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="WhatsApp da ProSeg">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-chat" />
+                        </svg>
+                    </a>
+                    <a href="mailto:contato@proseg.io" aria-label="E-mail da ProSeg">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-mail" />
+                        </svg>
+                    </a>
+                </div>
             </div>
 
-            <div class="col-dir">
-                <h2>Preencha o formulário</h2>
-
-                <input type="text" placeholder="Seu nome completo" class="inp">
-                <input type="text" placeholder="Telefone" class="inp">
-
-                <select class="inp">
-                    <option selected>Localização</option>
-                    <option>São Paulo</option>
-                    <option>Rio de Janeiro</option>
-                    <option>Minas Gerais</option>
-                </select>
-
-                <input type="text" placeholder="Como podemos te ajudar?" class="inp">
-
-                <button class="btn-enviar">Enviar</button>
+            <div>
+                <p class="footer-title">Navegação</p>
+                <ul class="footer-list">
+                    <li><a href="index.html#solucoes">Soluções</a></li>
+                    <li><a href="index.html#beneficios">Benefícios</a></li>
+                    <li><a href="index.html#plataforma">Plataforma</a></li>
+                    <li><a href="index.html#processo">Como funciona</a></li>
+                    <li><a href="index.html#faq">Dúvidas</a></li>
+                </ul>
             </div>
 
+            <div>
+                <p class="footer-title">Soluções</p>
+                <ul class="footer-list">
+                    <li><a href="contato.html#assunto">Monitoramento 24/7</a></li>
+                    <li><a href="contato.html#assunto">Câmeras de segurança</a></li>
+                    <li><a href="contato.html#assunto">Alarmes e sensores</a></li>
+                    <li><a href="contato.html#assunto">Controle de acesso</a></li>
+                    <li><a href="contato.html#assunto">Energia inteligente</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="footer-title">Contato</p>
+                <ul class="footer-contact">
+                    <li class="footer-contact__item">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-chat" />
+                        </svg>
+                        <span>(14) 98765-4321</span>
+                    </li>
+                    <li class="footer-contact__item">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-mail" />
+                        </svg>
+                        <span>contato@proseg.io</span>
+                    </li>
+                    <li class="footer-contact__item">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-map-pin" />
+                        </svg>
+                        <span>R. Primavera, 123 · Bosque das Estrelas · Bauru/SP</span>
+                    </li>
+                    <li class="footer-contact__item">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-clock" />
+                        </svg>
+                        <span>Seg a sáb · 8h às 18h</span>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-    </section>
+        <div class="container site-footer__bottom">
+            <p>&copy; <span data-year>2026</span> ProSeg · Projeto conceitual de fins acadêmicos.</p>
+            <p>Desenvolvido por Pedro Soares</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js" defer></script>
+    <script src="js/contact.js" defer></script>
 </body>
 
 </html>

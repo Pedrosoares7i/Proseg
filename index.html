@@ -1,64 +1,1326 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proseg - Home</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="theme-color" content="#0B1526">
+    <title>ProSeg — Segurança inteligente e energia sob controle</title>
+    <meta name="description"
+        content="A ProSeg instala e monitora sistemas de segurança e energia inteligente para residências, comércios e condomínios. Câmeras, alarmes, controle de acesso e gestão de consumo em um só painel.">
+    <meta name="author" content="Pedro Soares">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:title" content="ProSeg — Segurança inteligente e energia sob controle">
+    <meta property="og:description"
+        content="Monitoramento 24h e gestão de energia inteligente em um só painel. Soluções para casa, comércio e condomínio.">
+    <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap">
+
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/sections.css">
 </head>
 
 <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-    <header>
-        <img src="img/Logo ProSeg.png" alt="Logo ProSeg" id="LogoHome">
+    <!-- ==========================================================
+         Sprite de ícones (SVG inline): escala, tematizável por CSS
+         e sem requisições extras. Ícones decorativos = aria-hidden.
+         ========================================================== -->
+    <svg class="visually-hidden" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+            <symbol id="i-radar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <circle cx="12" cy="12" r="4.6" />
+                <path d="M12 12 19 5.2" />
+            </symbol>
+            <symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2.8 7.4h11.4a2 2 0 0 1 2 2v5.2a2 2 0 0 1-2 2H4.8a2 2 0 0 1-2-2V7.4Z" />
+                <circle cx="9.6" cy="12" r="2.6" />
+                <path d="m16.2 11.4 5-2.7v6.6l-5-2.7" />
+            </symbol>
+            <symbol id="i-fence" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3.4 20.5V8.8M8.1 20.5V5.4M12.8 20.5V5.4M17.5 20.5V8.8" />
+                <path d="M3.4 12.4h17.2M3.4 16.4h17.2" />
+            </symbol>
+            <symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 9.1a6 6 0 1 0-12 0c0 4.9-1.9 6.4-1.9 6.4h15.8S18 14 18 9.1Z" />
+                <path d="M10.3 18.6a2 2 0 0 0 3.4 0" />
+            </symbol>
+            <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="7.6" cy="12" r="4.1" />
+                <path d="M11.7 12h9.1M17.6 12v3.6M20.4 12v2.4" />
+            </symbol>
+            <symbol id="i-battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.6" y="7" width="15.2" height="10" rx="2.2" />
+                <path d="M20.9 10.4v3.2" />
+                <path d="m11.4 9.4-2.6 3.7h2.3l-1 3.1 3.2-4.1h-2.3l.4-2.7Z" />
+            </symbol>
+            <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="8.8" y="2.6" width="6.4" height="5.6" rx="1.6" />
+                <rect x="8.8" y="15.8" width="6.4" height="5.6" rx="1.6" />
+                <path d="M12 8.2v7.6" />
+                <path d="M2.6 5.4h3.6M2.6 18.6h3.6M17.8 5.4h3.6M17.8 18.6h3.6" />
+            </symbol>
+            <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4.4" y="10.4" width="15.2" height="10.4" rx="2.2" />
+                <path d="M8 10.4V7.6a4 4 0 0 1 8 0v2.8" />
+                <path d="M12 14.6v2.2" />
+            </symbol>
+            <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13.4 2.4 4.9 13.1h5.6l-1.1 8.5 8.6-10.7h-5.7l.1-8.5Z" />
+            </symbol>
+            <symbol id="i-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3.4 6.6h17.2M3.4 12h17.2M3.4 17.4h17.2" />
+                <circle cx="8.6" cy="6.6" r="2.2" />
+                <circle cx="15.4" cy="12" r="2.2" />
+                <circle cx="10.6" cy="17.4" r="2.2" />
+            </symbol>
+            <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2.6 2.6 7.4 12 12.2l9.4-4.8L12 2.6Z" />
+                <path d="m2.6 12.4 9.4 4.8 9.4-4.8" />
+                <path d="m2.6 16.8 9.4 4.8 9.4-4.8" />
+            </symbol>
+            <symbol id="i-broadcast" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="2.1" />
+                <path d="M8.3 8.3a5.2 5.2 0 0 0 0 7.4M15.7 15.7a5.2 5.2 0 0 0 0-7.4" />
+                <path d="M5.3 5.3a9.5 9.5 0 0 0 0 13.4M18.7 18.7a9.5 9.5 0 0 0 0-13.4" />
+            </symbol>
+            <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m4.6 12.4 5 5 10-11" />
+            </symbol>
+            <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12h16" />
+                <path d="m13.5 5.5 6.5 6.5-6.5 6.5" />
+            </symbol>
+            <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9.5 6 6 6-6" />
+            </symbol>
+            <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7.2V12l3.2 1.8" />
+            </symbol>
+            <symbol id="i-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 21.4s7-6.1 7-11.2a7 7 0 1 0-14 0c0 5.1 7 11.2 7 11.2Z" />
+                <circle cx="12" cy="10" r="2.6" />
+            </symbol>
+            <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2.6" y="4.6" width="18.8" height="14.8" rx="2.2" />
+                <path d="m3.4 7 8.6 5.8L20.6 7" />
+            </symbol>
+            <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20.8 11.6a8.4 8.4 0 0 1-12.2 7.5L3.6 20.4l1.4-5a8.4 8.4 0 1 1 15.8-3.8Z" />
+                <path d="M9 9.6c.2 2.9 2.4 5.1 5.3 5.3.5 0 .8-.3.8-.8v-.8l-1.9-.7-.8.8c-.9-.4-1.6-1.1-2-2l.8-.8-.7-1.9h-.8c-.5 0-.8.4-.8.8Z" />
+            </symbol>
+            <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3.4" y="3.4" width="17.2" height="17.2" rx="4.8" />
+                <circle cx="12" cy="12" r="4" />
+                <path d="M17 7h.01" />
+            </symbol>
+            <symbol id="i-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M2.6 12.4h4l2.5-7.2 4 14.4 2.5-7.2h5.8" />
+            </symbol>
+            <symbol id="i-info" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 11.2v5.4M12 7.8h.01" />
+            </symbol>
+            <symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3.4" y="5.4" width="17.2" height="15.2" rx="2.2" />
+                <path d="M3.4 10.2h17.2M8.2 3.4v4M15.8 3.4v4" />
+            </symbol>
+            <symbol id="i-headset" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4.4 15v-3a7.6 7.6 0 0 1 15.2 0v3" />
+                <path d="M19.6 16.4a3 3 0 0 1-3 3h-2.4" />
+                <rect x="2.6" y="13.4" width="3.8" height="5.4" rx="1.4" />
+                <rect x="17.6" y="13.4" width="3.8" height="5.4" rx="1.4" />
+            </symbol>
+            <symbol id="i-bolt-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12.8 7 9.4 12.6h2.6L11 17.2l3.6-5.8H12L12.8 7Z" />
+            </symbol>
+        </defs>
+    </svg>
 
-        <nav>
-            <a href="servicos.html">Serviços</a>
-            <a href="avaliacao.html">Avaliações</a>
-            <a href="sobre.html">Sobre</a>
-            <a href="contato.html">Contatos</a>
-            <a href="clientes.html">Clientes</a>
-        </nav>
+    <!-- ================= HEADER ================= -->
+    <header class="site-header" id="siteHeader" data-header>
+        <div class="container site-header__inner">
+            <a class="brand" href="index.html" aria-label="ProSeg, página inicial">
+                <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                    <path d="M16 3 6.5 7v7.4C6.5 19.7 10.6 24.3 16 26c5.4-1.7 9.5-6.3 9.5-11.6V7L16 3Z"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                    <path d="m11.4 15.4 3 3.1 6.4-7.4" fill="none" stroke="#F5A524" stroke-width="2.4"
+                        stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="brand__name">Pro<em>Seg</em></span>
+            </a>
 
-        <button>Solicite seu Orçamento</button>
+            <nav class="nav" id="siteNav" aria-label="Navegação principal">
+                <a class="nav__link" href="#solucoes">Soluções</a>
+                <a class="nav__link" href="#beneficios">Benefícios</a>
+                <a class="nav__link" href="#plataforma">Plataforma</a>
+                <a class="nav__link" href="#processo">Como funciona</a>
+                <a class="nav__link" href="#faq">Dúvidas</a>
+                <a class="nav__link nav__cta" href="contato.html">Falar com especialista</a>
+            </nav>
+
+            <div class="site-header__actions">
+                <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="siteNav"
+                    data-nav-toggle>
+                    <span class="nav-toggle__bars" aria-hidden="true"><span></span><span></span><span></span></span>
+                    <span data-nav-toggle-label>Menu</span>
+                </button>
+                <a class="btn btn--primary" href="contato.html">
+                    Solicitar orçamento
+                    <svg class="btn__icon" aria-hidden="true" focusable="false">
+                        <use href="#i-arrow-right" />
+                    </svg>
+                </a>
+            </div>
+        </div>
     </header>
 
-    <div class="inf">
-        <h1 id="tituloHome">Segurança e Proteção, a nossa única missão.</h1>
-        <h3 id="subHome">Residência, comércio ou condomínio - temos uma solução sob medida para você.</h3>
-    </div>
+    <main id="conteudo">
+        <!-- ================= HERO ================= -->
+        <section class="hero on-dark" aria-labelledby="hero-title">
+            <div class="container hero__grid">
+                <div>
+                    <p class="eyebrow">Segurança e energia inteligente</p>
+                    <h1 id="hero-title">Segurança inteligente e <span class="hero__title-accent">energia sob
+                            controle</span>.</h1>
+                    <p class="hero__lead">
+                        A ProSeg instala e monitora sistemas de proteção e medição de energia em residências,
+                        comércios e condomínios. Câmeras, alarmes, sensores e consumo de luz em um só painel,
+                        acompanhados por uma central que não dorme.
+                    </p>
 
-    <section class="beneficios">
-        <div class="beneficio">
-            <img src="img/icone.png" alt="Ícone de verificação">
-            <p>Monitoramento 24h com alarme e CFTV.</p>
+                    <div class="hero__actions">
+                        <a class="btn btn--primary btn--lg" href="#solucoes">
+                            Conhecer soluções
+                            <svg class="btn__icon" aria-hidden="true" focusable="false">
+                                <use href="#i-arrow-right" />
+                            </svg>
+                        </a>
+                        <a class="btn btn--ghost btn--lg" href="contato.html">Falar com especialista</a>
+                    </div>
+
+                    <ul class="hero__meta">
+                        <li class="hero__meta-item">
+                            <svg aria-hidden="true" focusable="false">
+                                <use href="#i-map-pin" />
+                            </svg>
+                            Bauru e região
+                        </li>
+                        <li class="hero__meta-item">
+                            <svg aria-hidden="true" focusable="false">
+                                <use href="#i-clock" />
+                            </svg>
+                            Resposta média em 2h
+                        </li>
+                        <li class="hero__meta-item">
+                            <svg aria-hidden="true" focusable="false">
+                                <use href="#i-check" />
+                            </svg>
+                            6 meses de manutenção inclusa
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Console compacto: prova visual de que a empresa é tecnológica -->
+                <div class="hero__panel">
+                    <div class="hero__panel-glow" aria-hidden="true"></div>
+                    <div class="console">
+                        <div class="console__bar">
+                            <span class="console__lights" aria-hidden="true"><span></span><span></span><span></span></span>
+                            <span class="console__url">app.proseg.io/painel</span>
+                            <span class="hero__panel-status">
+                                <span class="dot dot--live" aria-hidden="true"></span>
+                                ao vivo
+                            </span>
+                        </div>
+                        <div class="console__body">
+                            <div class="metric-row">
+                                <div class="metric">
+                                    <p class="metric__label">Dispositivos</p>
+                                    <p class="metric__value">24<span class="metric__unit">ativos</span></p>
+                                </div>
+                                <div class="metric">
+                                    <p class="metric__label">Alertas hoje</p>
+                                    <p class="metric__value">0<span class="metric__unit">abertos</span></p>
+                                </div>
+                                <div class="metric metric--accent">
+                                    <p class="metric__label">Consumo</p>
+                                    <p class="metric__value">3,42<span class="metric__unit">kW</span></p>
+                                </div>
+                            </div>
+
+                            <div class="spark">
+                                <div class="spark__head">
+                                    <p class="spark__title">Consumo · últimas 24h</p>
+                                    <p class="spark__value">3,42 kW</p>
+                                </div>
+                                <svg class="spark__chart" viewBox="0 0 200 48" role="img"
+                                    aria-label="Gráfico de linha do consumo de energia nas últimas 24 horas, variando entre 1,6 e 3,4 quilowatts.">
+                                    <defs>
+                                        <linearGradient id="sparkStroke" x1="0" y1="0" x2="200" y2="0"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#2E63F5" />
+                                            <stop offset="1" stop-color="#F5A524" />
+                                        </linearGradient>
+                                        <linearGradient id="sparkFill" x1="0" y1="0" x2="0" y2="48"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop offset="0" stop-color="#2E63F5" stop-opacity="0.35" />
+                                            <stop offset="1" stop-color="#2E63F5" stop-opacity="0" />
+                                        </linearGradient>
+                                    </defs>
+                                    <path
+                                        d="M0 3.2 8.7 2.4 17.4 2 26.1 2.6 34.8 3 43.5 2.2 52.2 1.8 60.9 2.4 69.6 3.4 78.3 2.8 87 2.2 95.7 1.6 104.3 1.9 113 2.5 121.7 3.2 130.4 2.6 139.1 2 147.8 2.4 156.5 3 165.2 2.2 173.9 1.8 182.6 2.6 191.3 3.1 200 2.5V48H0Z"
+                                        fill="url(#sparkFill)" />
+                                    <path
+                                        d="M0 3.2 8.7 2.4 17.4 2 26.1 2.6 34.8 3 43.5 2.2 52.2 1.8 60.9 2.4 69.6 3.4 78.3 2.8 87 2.2 95.7 1.6 104.3 1.9 113 2.5 121.7 3.2 130.4 2.6 139.1 2 147.8 2.4 156.5 3 165.2 2.2 173.9 1.8 182.6 2.6 191.3 3.1 200 2.5"
+                                        fill="none" stroke="url(#sparkStroke)" stroke-width="1.8" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <circle cx="200" cy="2.5" r="2.6" fill="#F5A524" />
+                                </svg>
+                                <div class="spark__foot">
+                                    <span>00h</span>
+                                    <span>06h</span>
+                                    <span>12h</span>
+                                    <span>18h</span>
+                                    <span>agora</span>
+                                </div>
+                            </div>
+
+                            <ul class="status-list">
+                                <li class="status-row">
+                                    <span class="status-row__icon" aria-hidden="true">
+                                        <svg focusable="false">
+                                            <use href="#i-radar" />
+                                        </svg>
+                                    </span>
+                                    <span class="status-row__text">
+                                        <span class="status-row__name">Sensor de movimento</span>
+                                        <span class="status-row__meta">Normal · há 3 min</span>
+                                    </span>
+                                    <span class="pill pill--dark status-row__end">OK</span>
+                                </li>
+                                <li class="status-row">
+                                    <span class="status-row__icon" aria-hidden="true">
+                                        <svg focusable="false">
+                                            <use href="#i-lock" />
+                                        </svg>
+                                    </span>
+                                    <span class="status-row__text">
+                                        <span class="status-row__name">Portão principal</span>
+                                        <span class="status-row__meta">Fechado · há 6 min</span>
+                                    </span>
+                                    <span class="pill pill--dark status-row__end">OK</span>
+                                </li>
+                                <li class="status-row">
+                                    <span class="status-row__icon" aria-hidden="true">
+                                        <svg focusable="false">
+                                            <use href="#i-camera" />
+                                        </svg>
+                                    </span>
+                                    <span class="status-row__text">
+                                        <span class="status-row__name">Câmera frontal</span>
+                                        <span class="status-row__meta">Gravando · 1080p</span>
+                                    </span>
+                                    <span class="pill pill--dark status-row__end">
+                                        <span class="dot dot--live" aria-hidden="true"></span> ao vivo
+                                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= SOLUÇÕES ================= -->
+        <section class="section section--white" id="solucoes" aria-labelledby="solucoes-title">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Soluções</p>
+                    <h2 id="solucoes-title">Do que a ProSeg se ocupa</h2>
+                    <p class="lead">
+                        Oito frentes de trabalho que formam um sistema só. Você contrata apenas o que o seu
+                        ambiente precisa — e o painel integra tudo.
+                    </p>
+                </div>
+
+                <ul class="card-grid solutions__grid">
+                    <li class="card reveal">
+                        <span class="icon-box" aria-hidden="true">
+                            <svg focusable="false">
+                                <use href="#i-radar" />
+                            </svg>
+                        </span>
+                        <h3>Monitoramento 24/7</h3>
+                        <p>Uma central acompanha sensores, alarmes e câmeras sem interrupção, dia e noite, e
+                            avisa você na hora do que aconteceu.</p>
+                        <p class="card__benefit">Resposta imediata a eventos</p>
+                    </li>
+                    <li class="card reveal" style="--reveal-delay: 60ms">
+                        <span class="icon-box" aria-hidden="true">
+                            <svg focusable="false">
+                                <use href="#i-camera" />
+                            </svg>
+                        </span>
+                        <h3>Câmeras de segurança</h3>
+                        <p>Gravação contínua em alta definição e acesso remoto por qualquer dispositivo, de onde
+                            você estiver.</p>
+                        <p class="card__benefit">Imagens do ambiente, sempre que precisar</p>
+                    </li>
+                    <li class="card reveal" style="--reveal-delay: 120ms">
+                        <span class="icon-box" aria-hidden="true">
+                            <svg focusable="false">
+                                <use href="#i-fence" />
+                            </svg>
+                        </span>
+                        <h3>Cerca elétrica</h3>
+                        <p>Barreira perimetral que avisa a central no instante em que é acionada, sem depender de
+                            alguém perto do local.</p>
+                        <p class="card__benefit">Ameaça impedida antes da entrada</p>
+                    </li>
+                    <li class="card reveal" style="--reveal-delay: 180ms">
+                        <span class="icon-box" aria-hidden="true">
+                            <svg focusable="false">
+                                <use href="#i-bell" />
+                            </svg>
+                        </span>
+                        <h3>Alarmes e sensores</h3>
+                        <p>Detecção de movimento e de abertura com notificação imediata, dimensionada para o
+                            tamanho e o uso real do espaço.</p>
+                        <p class="card__benefit">Nenhum evento passa despercebido</p>
+                    </li>
+                    <li class="card reveal" style="--reveal-delay: 240ms">
+                        <span class="icon-box" aria-hidden="true">
+                            <svg focusable="false">
+                                <use href="#i-key" />
+                            </svg>
+                        </span>
+                        <h3>Controle de acesso e cancelas</h3>
+                        <p>Entrada organizada e registrada, com histórico de quem passou, em qual horário e por
+                            qual porta.</p>
+                        <p class="card__benefit">Áreas restritas sob controle</p>
+                    </li>
+                    <li class="card reveal">
+                        <span class="icon-box" aria-hidden="true">
+                            <svg focusable="false">
+                                <use href="#i-battery" />
+                            </svg>
+                        </span>
+                        <h3>Nobreaks e energia reserva</h3>
+                        <p>Autonomia para que câmeras, alarmes e rede continuem funcionando durante quedas de
+                            energia.</p>
+                        <p class="card__benefit">Proteção que não desliga com a luz</p>
+                    </li>
+                    <li class="card reveal" style="--reveal-delay: 60ms">
+                        <span class="icon-box" aria-hidden="true">
+                            <svg focusable="false">
+                                <use href="#i-network" />
+                            </svg>
+                        </span>
+                        <h3>Cabeamento estruturado</h3>
+                        <p>Rede organizada e estável para que a falha de um equipamento não derrube o sistema
+                            inteiro.</p>
+                        <p class="card__benefit">Menos falhas, manutenção previsível</p>
+                    </li>
+                    <li class="card reveal" style="--reveal-delay: 120ms">
+                        <span class="icon-box icon-box--amber" aria-hidden="true">
+                            <svg focusable="false">
+                                <use href="#i-bolt" />
+                            </svg>
+                        </span>
+                        <h3>Energia inteligente</h3>
+                        <p>Medição por circuito e automação de iluminação, com desligamento automático das áreas
+                            sem uso.</p>
+                        <p class="card__benefit">Menos desperdício na conta de luz</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ================= BENEFÍCIOS ================= -->
+        <section class="section section--plain" id="beneficios" aria-labelledby="beneficios-title">
+            <div class="container benefits__grid">
+                <div class="benefits__aside">
+                    <p class="eyebrow">Benefícios</p>
+                    <h2 id="beneficios-title">Menos susto no dia a dia, menos desperdício na conta</h2>
+                    <p class="lead">
+                        Não é sobre instalar mais equipamento. É sobre transformar informação em decisão: saber o
+                        que está acontecendo e onde a energia está indo.
+                    </p>
+                    <a class="link-arrow" href="#processo">
+                        Ver como funciona
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-arrow-right" />
+                        </svg>
+                    </a>
+                </div>
+
+                <ul class="benefits__list">
+                    <li class="benefit reveal">
+                        <span class="benefit__index" aria-hidden="true">01</span>
+                        <div>
+                            <h3>Monitoramento em tempo real</h3>
+                            <p>A central acompanha eventos continuamente e avisa no momento em que ocorrem — não
+                                quando você chega em casa e percebe.</p>
+                        </div>
+                    </li>
+                    <li class="benefit reveal">
+                        <span class="benefit__index" aria-hidden="true">02</span>
+                        <div>
+                            <h3>Controle do consumo por circuito</h3>
+                            <p>Você vê em qual ambiente e em qual aparelho a energia está sendo gasta, em vez de
+                                receber apenas a fatura do mês.</p>
+                        </div>
+                    </li>
+                    <li class="benefit reveal">
+                        <span class="benefit__index" aria-hidden="true">03</span>
+                        <div>
+                            <h3>Redução de desperdício</h3>
+                            <p>Iluminação automática e desligamento de áreas vazias cortam o consumo que você
+                                nem percebe — normalmente o maior custo invisível.</p>
+                        </div>
+                    </li>
+                    <li class="benefit reveal">
+                        <span class="benefit__index" aria-hidden="true">04</span>
+                        <div>
+                            <h3>Acompanhamento centralizado</h3>
+                            <p>Câmeras, sensores, alarmes e medição no mesmo painel, em vez de cinco aplicativos
+                                diferentes e nenhuma visão do conjunto.</p>
+                        </div>
+                    </li>
+                    <li class="benefit reveal">
+                        <span class="benefit__index" aria-hidden="true">05</span>
+                        <div>
+                            <h3>Alertas inteligentes</h3>
+                            <p>Notificações filtradas por severidade, para que o que realmente importa não se
+                                perca no meio de avisos irrelevantes.</p>
+                        </div>
+                    </li>
+                    <li class="benefit reveal">
+                        <span class="benefit__index" aria-hidden="true">06</span>
+                        <div>
+                            <h3>Integração entre equipamentos</h3>
+                            <p>Nobreak, portão, cancela e câmeras conversando no mesmo sistema: uma queda de
+                                energia não vira uma parede de equipamentos desligados.</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ================= PLATAFORMA ================= -->
+        <section class="section section--white" id="plataforma" aria-labelledby="plataforma-title">
+            <div class="container platform__grid">
+                <div class="platform__copy">
+                    <p class="eyebrow">Tecnologia</p>
+                    <h2 id="plataforma-title">Um painel para tudo o que está instalado</h2>
+                    <p class="lead">
+                        A plataforma ProSeg reúne em uma única tela o que antes exigia vigia, caderno de
+                        anotações e conta de luz.
+                    </p>
+
+                    <ul class="platform__points">
+                        <li class="platform__point">
+                            <span>
+                                <strong>Dados em tempo real</strong>
+                                Status de cada equipamento atualizado continuamente, com histórico de eventos.
+                            </span>
+                        </li>
+                        <li class="platform__point">
+                            <span>
+                                <strong>Segurança e energia no mesmo lugar</strong>
+                                Monitoramento do ambiente e medição de consumo compartilham a mesma interface.
+                            </span>
+                        </li>
+                        <li class="platform__point">
+                            <span>
+                                <strong>Automação programável</strong>
+                                Regras que reagem a horário, presença e evento, sem depender de intervenção
+                                manual.
+                            </span>
+                        </li>
+                    </ul>
+
+                    <div class="notice platform__disclaimer">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-info" />
+                        </svg>
+                        <span>
+                            <strong>Representação ilustrativa</strong>
+                            As telas ao lado ilustram como o console ProSeg foi pensado para funcionar. Não há
+                            dados reais de clientes nesta demonstração.
+                        </span>
+                    </div>
+                </div>
+
+                <div class="console reveal">
+                    <div class="console__bar">
+                        <span class="console__lights" aria-hidden="true"><span></span><span></span><span></span></span>
+                        <span class="console__url">app.proseg.io/painel</span>
+                        <span class="hero__panel-status">
+                            <span class="dot dot--live" aria-hidden="true"></span>
+                            ao vivo
+                        </span>
+                    </div>
+
+                    <div class="console__body">
+                        <div class="console__tabs-wrap">
+                            <div class="tabs" role="tablist" aria-label="Seções do painel ProSeg" data-tabs>
+                                <button class="tab" type="button" role="tab" id="tab-consumo" aria-controls="panel-consumo"
+                                    aria-selected="true" tabindex="0">
+                                    <svg aria-hidden="true" focusable="false">
+                                        <use href="#i-activity" />
+                                    </svg>
+                                    Consumo
+                                </button>
+                                <button class="tab" type="button" role="tab" id="tab-dispositivos"
+                                    aria-controls="panel-dispositivos" aria-selected="false" tabindex="-1">
+                                    <svg aria-hidden="true" focusable="false">
+                                        <use href="#i-layers" />
+                                    </svg>
+                                    Dispositivos
+                                </button>
+                                <button class="tab" type="button" role="tab" id="tab-cameras"
+                                    aria-controls="panel-cameras" aria-selected="false" tabindex="-1">
+                                    <svg aria-hidden="true" focusable="false">
+                                        <use href="#i-camera" />
+                                    </svg>
+                                    Câmeras
+                                </button>
+                                <button class="tab" type="button" role="tab" id="tab-alertas"
+                                    aria-controls="panel-alertas" aria-selected="false" tabindex="-1">
+                                    <svg aria-hidden="true" focusable="false">
+                                        <use href="#i-broadcast" />
+                                    </svg>
+                                    Alertas
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Aba: Consumo -->
+                        <div class="console__tabpanel" role="tabpanel" id="panel-consumo" aria-labelledby="tab-consumo"
+                            tabindex="0">
+                            <div class="metric-row">
+                                <div class="metric metric--accent">
+                                    <p class="metric__label">Consumo agora</p>
+                                    <p class="metric__value">3,42<span class="metric__unit">kW</span></p>
+                                    <p class="metric__trend">−12% vs. média</p>
+                                </div>
+                                <div class="metric">
+                                    <p class="metric__label">Custo estimado</p>
+                                    <p class="metric__value">214<span class="metric__unit">R$</span></p>
+                                    <p class="metric__trend metric__trend--down">no mês</p>
+                                </div>
+                                <div class="metric">
+                                    <p class="metric__label">Pico de demanda</p>
+                                    <p class="metric__value">5,18<span class="metric__unit">kW</span></p>
+                                    <p class="metric__trend metric__trend--down">projeção 6,00 kW</p>
+                                </div>
+                            </div>
+
+                            <div class="chart">
+                                <div class="chart__head">
+                                    <p class="chart__title">Consumo mensal (kWh)</p>
+                                    <span class="chart__legend"><i aria-hidden="true"></i> pico do período</span>
+                                </div>
+                                <div class="chart__plot" role="img"
+                                    aria-label="Gráfico de barras do consumo mensal: 58, 52, 44, 41, 46, 68, 71, 52, 44, 39, 42 e 49 quilowatts-hora, com pico em janeiro e julho.">
+                                    <span class="chart__col" style="--h: 58%"></span>
+                                    <span class="chart__col" style="--h: 52%"></span>
+                                    <span class="chart__col" style="--h: 44%"></span>
+                                    <span class="chart__col" style="--h: 41%"></span>
+                                    <span class="chart__col" style="--h: 46%"></span>
+                                    <span class="chart__col" data-peak="true" style="--h: 68%"></span>
+                                    <span class="chart__col" data-peak="true" style="--h: 71%"></span>
+                                    <span class="chart__col" style="--h: 52%"></span>
+                                    <span class="chart__col" style="--h: 44%"></span>
+                                    <span class="chart__col" style="--h: 39%"></span>
+                                    <span class="chart__col" style="--h: 42%"></span>
+                                    <span class="chart__col" style="--h: 49%"></span>
+                                </div>
+                                <div class="chart__axis">
+                                    <span>Ago</span>
+                                    <span>Out</span>
+                                    <span>Dez</span>
+                                    <span>Fev</span>
+                                    <span>Abr</span>
+                                    <span>Jun</span>
+                                    <span>Jul</span>
+                                </div>
+                            </div>
+
+                            <div class="progress">
+                                <div class="progress__head">
+                                    <span>Meta mensal de consumo</span>
+                                    <span>268 / 395 kWh</span>
+                                </div>
+                                <div class="progress__track">
+                                    <div class="progress__bar" style="--w: 68%"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba: Dispositivos -->
+                        <div class="console__tabpanel" role="tabpanel" id="panel-dispositivos"
+                            aria-labelledby="tab-dispositivos" tabindex="0" hidden>
+                            <div class="console__split">
+                                <div>
+                                    <p class="console__block-title">Sensores e acesso</p>
+                                    <ul class="device-list">
+                                        <li class="device">
+                                            <span class="device__icon" aria-hidden="true">
+                                                <svg focusable="false">
+                                                    <use href="#i-radar" />
+                                                </svg>
+                                            </span>
+                                            <span class="device__text">
+                                                <span class="device__name">Sensor da sala</span>
+                                                <span class="device__meta">Movimento · há 2 min</span>
+                                            </span>
+                                            <span class="pill pill--dark device__end">Normal</span>
+                                        </li>
+                                        <li class="device">
+                                            <span class="device__icon" aria-hidden="true">
+                                                <svg focusable="false">
+                                                    <use href="#i-key" />
+                                                </svg>
+                                            </span>
+                                            <span class="device__text">
+                                                <span class="device__name">Controle de acesso</span>
+                                                <span class="device__meta">Porta principal · há 4 min</span>
+                                            </span>
+                                            <span class="pill pill--dark device__end">Normal</span>
+                                        </li>
+                                        <li class="device">
+                                            <span class="device__icon" aria-hidden="true">
+                                                <svg focusable="false">
+                                                    <use href="#i-lock" />
+                                                </svg>
+                                            </span>
+                                            <span class="device__text">
+                                                <span class="device__name">Portão</span>
+                                                <span class="device__meta">Fechado · há 6 min</span>
+                                            </span>
+                                            <span class="pill pill--dark device__end">Normal</span>
+                                        </li>
+                                        <li class="device">
+                                            <span class="device__icon" aria-hidden="true">
+                                                <svg focusable="false">
+                                                    <use href="#i-fence" />
+                                                </svg>
+                                            </span>
+                                            <span class="device__text">
+                                                <span class="device__name">Cerca elétrica</span>
+                                                <span class="device__meta">Perímetro · há 11 min</span>
+                                            </span>
+                                            <span class="pill pill--dark device__end">Normal</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="console__block-title">Energia e infraestrutura</p>
+                                    <ul class="device-list">
+                                        <li class="device">
+                                            <span class="device__icon" aria-hidden="true">
+                                                <svg focusable="false">
+                                                    <use href="#i-battery" />
+                                                </svg>
+                                            </span>
+                                            <span class="device__text">
+                                                <span class="device__name">Nobreak</span>
+                                                <span class="device__meta">Carga 98% · há 1 min</span>
+                                            </span>
+                                            <span class="pill pill--dark device__end">Carregando</span>
+                                        </li>
+                                        <li class="device">
+                                            <span class="device__icon" aria-hidden="true">
+                                                <svg focusable="false">
+                                                    <use href="#i-bolt-circle" />
+                                                </svg>
+                                            </span>
+                                            <span class="device__text">
+                                                <span class="device__name">Medidor de energia</span>
+                                                <span class="device__meta">Circuito geral · agora</span>
+                                            </span>
+                                            <span class="pill pill--dark device__end">Normal</span>
+                                        </li>
+                                        <li class="device">
+                                            <span class="device__icon" aria-hidden="true">
+                                                <svg focusable="false">
+                                                    <use href="#i-network" />
+                                                </svg>
+                                            </span>
+                                            <span class="device__text">
+                                                <span class="device__name">Switch da rede</span>
+                                                <span class="device__meta">24 dispositivos · há 1 min</span>
+                                            </span>
+                                            <span class="pill pill--dark device__end">Normal</span>
+                                        </li>
+                                        <li class="device">
+                                            <span class="device__icon" aria-hidden="true">
+                                                <svg focusable="false">
+                                                    <use href="#i-bell" />
+                                                </svg>
+                                            </span>
+                                            <span class="device__text">
+                                                <span class="device__name">Sirene</span>
+                                                <span class="device__meta">Teste ok · há 12 min</span>
+                                            </span>
+                                            <span class="pill pill--dark device__end">Normal</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba: Câmeras -->
+                        <div class="console__tabpanel" role="tabpanel" id="panel-cameras" aria-labelledby="tab-cameras"
+                            tabindex="0" hidden>
+                            <div class="feed-grid">
+                                <figure class="feed">
+                                    <span class="feed__sweep" aria-hidden="true"></span>
+                                    <span class="feed__frame" aria-hidden="true"></span>
+                                    <span class="feed__live">
+                                        <span class="dot dot--live" aria-hidden="true"></span> rec
+                                    </span>
+                                    <figcaption class="feed__label">Câmera frontal</figcaption>
+                                </figure>
+                                <figure class="feed">
+                                    <span class="feed__sweep" aria-hidden="true"></span>
+                                    <span class="feed__frame" aria-hidden="true"></span>
+                                    <span class="feed__live">
+                                        <span class="dot dot--live" aria-hidden="true"></span> rec
+                                    </span>
+                                    <figcaption class="feed__label">Câmera garagem</figcaption>
+                                </figure>
+                                <figure class="feed">
+                                    <span class="feed__sweep" aria-hidden="true"></span>
+                                    <span class="feed__frame" aria-hidden="true"></span>
+                                    <span class="feed__live">
+                                        <span class="dot dot--live" aria-hidden="true"></span> rec
+                                    </span>
+                                    <figcaption class="feed__label">Câmera entrada</figcaption>
+                                </figure>
+                            </div>
+                            <div class="console__split">
+                                <div>
+                                    <p class="console__block-title">Qualidade da imagem</p>
+                                    <ul class="device-list">
+                                        <li class="device">
+                                            <span class="device__name">Resolução</span>
+                                            <span class="device__end pill pill--dark">1080p</span>
+                                        </li>
+                                        <li class="device">
+                                            <span class="device__name">Quadros por segundo</span>
+                                            <span class="device__end pill pill--dark">30 fps</span>
+                                        </li>
+                                        <li class="device">
+                                            <span class="device__name">Retenção</span>
+                                            <span class="device__end pill pill--dark">15 dias</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="console__block-title">Acesso</p>
+                                    <ul class="device-list">
+                                        <li class="device">
+                                            <span class="device__name">Visualização remota</span>
+                                            <span class="device__end pill pill--dark">Ativa</span>
+                                        </li>
+                                        <li class="device">
+                                            <span class="device__name">Usuários com acesso</span>
+                                            <span class="device__end pill pill--dark">3</span>
+                                        </li>
+                                        <li class="device">
+                                            <span class="device__name">Alertas de movimento</span>
+                                            <span class="device__end pill pill--dark">Ativos</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Aba: Alertas -->
+                        <div class="console__tabpanel" role="tabpanel" id="panel-alertas" aria-labelledby="tab-alertas"
+                            tabindex="0" hidden>
+                            <div class="console__split">
+                                <div>
+                                    <p class="console__block-title">Eventos de hoje</p>
+                                    <ul class="device-list">
+                                        <li class="alert-row">
+                                            <span class="alert-row__bar alert-row__bar--warn" aria-hidden="true"></span>
+                                            <span>
+                                                <span class="alert-row__title">Movimento detectado</span>
+                                                <span class="alert-row__desc">Sala de estar · confirmado pela câmera
+                                                    frontal</span>
+                                            </span>
+                                            <span class="alert-row__time">14:32</span>
+                                        </li>
+                                        <li class="alert-row">
+                                            <span class="alert-row__bar alert-row__bar--warn" aria-hidden="true"></span>
+                                            <span>
+                                                <span class="alert-row__title">Portão aberto fora do horário</span>
+                                                <span class="alert-row__desc">Acesso manual registrado</span>
+                                            </span>
+                                            <span class="alert-row__time">09:05</span>
+                                        </li>
+                                        <li class="alert-row">
+                                            <span class="alert-row__bar alert-row__bar--ok" aria-hidden="true"></span>
+                                            <span>
+                                                <span class="alert-row__title">Câmera reconectada</span>
+                                                <span class="alert-row__desc">Câmera garagem · link restabelecido</span>
+                                            </span>
+                                            <span class="alert-row__time">08:41</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="console__block-title">Automações ativas</p>
+                                    <ul class="rule-list">
+                                        <li class="rule">
+                                            <span class="rule__icon" aria-hidden="true">
+                                                <svg focusable="false">
+                                                    <use href="#i-bolt" />
+                                                </svg>
+                                            </span>
+                                            <span class="rule__text">Iluminação externa<br>Liga ao anoitecer</span>
+                                            <span class="rule__state">ativa</span>
+                                        </li>
+                                        <li class="rule">
+                                            <span class="rule__icon" aria-hidden="true">
+                                                <svg focusable="false">
+                                                    <use href="#i-camera" />
+                                                </svg>
+                                            </span>
+                                            <span class="rule__text">Gravação contínua<br>24h · 1080p</span>
+                                            <span class="rule__state">ativa</span>
+                                        </li>
+                                        <li class="rule">
+                                            <span class="rule__icon" aria-hidden="true">
+                                                <svg focusable="false">
+                                                    <use href="#i-sliders" />
+                                                </svg>
+                                            </span>
+                                            <span class="rule__text">Desligamento automático<br>Ambientes vazios após
+                                                10 min</span>
+                                            <span class="rule__state">ativa</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= COMO FUNCIONA ================= -->
+        <section class="section section--plain" id="processo" aria-labelledby="processo-title">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Como funciona</p>
+                    <h2 id="processo-title">Quatro etapas, do primeiro contato à rotina</h2>
+                    <p class="lead">Você não precisa entender de tecnologia para contratar. A gente conduz cada
+                        passo e explica o que está sendo feito.</p>
+                </div>
+
+                <ol class="process__grid">
+                    <li class="step reveal">
+                        <span class="step__num">ETAPA 01</span>
+                        <h3>Diagnóstico</h3>
+                        <p>Conversamos sobre o espaço, os pontos mais vulneráveis e o que você quer proteger. A
+                            visita técnica confirma o que dá para fazer.</p>
+                    </li>
+                    <li class="step reveal" style="--reveal-delay: 80ms">
+                        <span class="step__num">ETAPA 02</span>
+                        <h3>Projeto e instalação</h3>
+                        <p>Definimos os equipamentos, a posição de cada sensor e a infraestrutura de rede
+                            necessária para o sistema não falhar.</p>
+                    </li>
+                    <li class="step reveal" style="--reveal-delay: 160ms">
+                        <span class="step__num">ETAPA 03</span>
+                        <h3>Ativação e integração</h3>
+                        <p>Conectamos tudo ao painel, configuramos as automações de energia e deixamos o
+                            ambiente operando.</p>
+                    </li>
+                    <li class="step reveal" style="--reveal-delay: 240ms">
+                        <span class="step__num">ETAPA 04</span>
+                        <h3>Monitoramento contínuo</h3>
+                        <p>Acompanhe pelo app, receba alertas filtrados e conte com suporte técnico quando
+                            precisar.</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ================= CONFIANÇA ================= -->
+        <section class="section trust on-dark" id="confianca" aria-labelledby="confianca-title">
+            <div class="container">
+                <div class="section-head">
+                    <p class="eyebrow">Confiança</p>
+                    <h2 id="confianca-title">O que você recebe, sem letra miúda</h2>
+                    <p class="lead">Compromissos de serviço claros e um canal que responde. Você não deveria
+                        precisar descobrir o que está incluído perguntando.</p>
+                </div>
+
+                <ul class="trust__stats">
+                    <li class="stat reveal">
+                        <p class="stat__value"><span data-count-to="24">24</span><small>horas</small></p>
+                        <p class="stat__label">de monitoramento por dia, todos os dias do ano</p>
+                    </li>
+                    <li class="stat reveal" style="--reveal-delay: 60ms">
+                        <p class="stat__value"><span data-count-to="6">6</span><small>meses</small></p>
+                        <p class="stat__label">de manutenção preventiva inclusa na instalação</p>
+                    </li>
+                    <li class="stat reveal" style="--reveal-delay: 120ms">
+                        <p class="stat__value"><span data-count-to="3">3</span><small>canais</small></p>
+                        <p class="stat__label">de atendimento: WhatsApp, e-mail e telefone</p>
+                    </li>
+                    <li class="stat reveal" style="--reveal-delay: 180ms">
+                        <p class="stat__value"><span data-count-to="1">1</span><small>painel</small></p>
+                        <p class="stat__label">para câmeras, sensores, alarmes e medição de energia</p>
+                    </li>
+                </ul>
+
+                <div class="trust__grid">
+                    <div class="trust__status reveal">
+                        <h3>Status do serviço</h3>
+                        <ul class="status-list status-block">
+                            <li class="status-row">
+                                <span class="status-row__icon" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#i-headset" />
+                                    </svg>
+                                </span>
+                                <span class="status-row__text">
+                                    <span class="status-row__name">Central de monitoramento</span>
+                                    <span class="status-row__meta">Operando 24h</span>
+                                </span>
+                                <span class="pill pill--dark status-row__end">
+                                    <span class="dot dot--live" aria-hidden="true"></span> online
+                                </span>
+                            </li>
+                            <li class="status-row">
+                                <span class="status-row__icon" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#i-layers" />
+                                    </svg>
+                                </span>
+                                <span class="status-row__text">
+                                    <span class="status-row__name">Painel do cliente</span>
+                                    <span class="status-row__meta">Sincronização dos dispositivos</span>
+                                </span>
+                                <span class="pill pill--dark status-row__end">
+                                    <span class="dot dot--live" aria-hidden="true"></span> online
+                                </span>
+                            </li>
+                            <li class="status-row">
+                                <span class="status-row__icon" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#i-chat" />
+                                    </svg>
+                                </span>
+                                <span class="status-row__text">
+                                    <span class="status-row__name">Suporte por WhatsApp</span>
+                                    <span class="status-row__meta">Seg a sáb, das 8h às 20h</span>
+                                </span>
+                                <span class="pill pill--dark status-row__end">disponível</span>
+                            </li>
+                            <li class="status-row">
+                                <span class="status-row__icon" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#i-calendar" />
+                                    </svg>
+                                </span>
+                                <span class="status-row__text">
+                                    <span class="status-row__name">Visita técnica</span>
+                                    <span class="status-row__meta">Agendada em até 48h</span>
+                                </span>
+                                <span class="pill pill--dark status-row__end">disponível</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="reveal">
+                        <h3>Garantias de serviço</h3>
+                        <ul class="guarantees">
+                            <li class="guarantee">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use href="#i-check" />
+                                </svg>
+                                <span>Manutenção preventiva inclusa por 6 meses após a instalação.</span>
+                            </li>
+                            <li class="guarantee">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use href="#i-check" />
+                                </svg>
+                                <span>Documentação de todos os equipamentos entregues ao cliente.</span>
+                            </li>
+                            <li class="guarantee">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use href="#i-check" />
+                                </svg>
+                                <span>Treinamento no uso do painel e do aplicativo, na entrega.</span>
+                            </li>
+                            <li class="guarantee">
+                                <svg aria-hidden="true" focusable="false">
+                                    <use href="#i-check" />
+                                </svg>
+                                <span>Sem custo de deslocamento para atendimento na região.</span>
+                            </li>
+                        </ul>
+
+                        <div class="notice trust__disclaimer">
+                            <svg aria-hidden="true" focusable="false">
+                                <use href="#i-info" />
+                            </svg>
+                            <span>
+                                <strong>Sobre este site</strong>
+                                A ProSeg é um projeto conceitual desenvolvido para fins acadêmicos. Os
+                                indicadores, telas e integrações apresentados são representações ilustrativas e
+                                não correspondem a clientes ou operações reais.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FAQ ================= -->
+        <section class="section section--white" id="faq" aria-labelledby="faq-title">
+            <div class="container faq">
+                <div class="faq__intro">
+                    <p class="eyebrow">Dúvidas</p>
+                    <h2 id="faq-title">Perguntas que aparecem antes de contratar</h2>
+                    <p class="lead">Se a sua não estiver aqui, é mais rápido perguntar direto do que continuar
+                        adivinhando.</p>
+                    <a class="link-arrow mt-6" href="contato.html">
+                        Falar com a equipe
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-arrow-right" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="accordion" data-accordion>
+                    <div class="accordion__item">
+                        <h3>
+                            <button class="accordion__trigger" type="button" aria-expanded="false"
+                                aria-controls="faq-p1" id="faq-t1">
+                                A instalação é feita pela ProSeg?
+                                <span class="accordion__icon" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#i-chevron-down" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </h3>
+                        <div class="accordion__panel" id="faq-p1" role="region" aria-labelledby="faq-t1">
+                            <div>
+                                <p>Sim. A equipe ProSeg realiza a visita técnica, instala os equipamentos,
+                                    faz a cabeamento necessário e entrega o sistema operando. Você recebe a
+                                    documentação do que foi instalado e onde.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion__item">
+                        <h3>
+                            <button class="accordion__trigger" type="button" aria-expanded="false"
+                                aria-controls="faq-p2" id="faq-t2">
+                                Preciso trocar os equipamentos que já tenho?
+                                <span class="accordion__icon" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#i-chevron-down" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </h3>
+                        <div class="accordion__panel" id="faq-p2" role="region" aria-labelledby="faq-t2">
+                            <div>
+                                <p>Na maioria dos casos, não. Avaliamos o que já existe e reaproveitamos o que
+                                    ainda está em condições. A troca só é indicada quando o equipamento não pode
+                                    ser integrado ao painel — e isso é explicado antes de qualquer valor.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion__item">
+                        <h3>
+                            <button class="accordion__trigger" type="button" aria-expanded="false"
+                                aria-controls="faq-p3" id="faq-t3">
+                                Como o consumo de energia é medido?
+                                <span class="accordion__icon" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#i-chevron-down" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </h3>
+                        <div class="accordion__panel" id="faq-p3" role="region" aria-labelledby="faq-t3">
+                            <div>
+                                <p>Instalamos medidores por circuito, o que permite separar o consumo de
+                                    iluminação, climatização e equipamentos. O painel mostra a leitura de cada
+                                    circuito ao longo do dia, e não apenas o total da fatura.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion__item">
+                        <h3>
+                            <button class="accordion__trigger" type="button" aria-expanded="false"
+                                aria-controls="faq-p4" id="faq-t4">
+                                Vocês atendem condomínios e empresas?
+                                <span class="accordion__icon" aria-hidden="true">
+                                    <svg focusable="false">
+                                        <use href="#i-chevron-down" />
+                                    </svg>
+                                </span>
+                            </button>
+                        </h3>
+                        <div class="accordion__panel" id="faq-p4" role="region" aria-labelledby="faq-t4">
+                            <div>
+                                <p>Sim. O projeto é montado por ambiente: áreas comuns, garagem e acesso de
+                                    pedestres em condomínios; entrada, estoque e circulação em comércio. Para
+                                    ambientes maiores, o orçamento é dividido por etapa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= CTA FINAL ================= -->
+        <section class="section cta-final on-dark" aria-labelledby="cta-title">
+            <div class="container cta-final__inner">
+                <h2 id="cta-title">Vamos entender o seu espaço antes de falar em valor</h2>
+                <p>Conte o que você precisa proteger e onde quer economizar. A visita técnica é sem custo e
+                    define o que faz sentido instalar.</p>
+                <div class="cta-final__actions">
+                    <a class="btn btn--primary btn--lg" href="contato.html">
+                        Solicitar orçamento
+                        <svg class="btn__icon" aria-hidden="true" focusable="false">
+                            <use href="#i-arrow-right" />
+                        </svg>
+                    </a>
+                    <a class="btn btn--ghost btn--lg" href="#solucoes">Ver soluções</a>
+                </div>
+                <p class="cta-final__note">
+                    <svg aria-hidden="true" focusable="false">
+                        <use href="#i-calendar" />
+                    </svg>
+                    Retorno em até 1 dia útil · Bauru e região
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="site-footer">
+        <div class="container site-footer__grid">
+            <div class="site-footer__about">
+                <a class="brand" href="index.html" aria-label="ProSeg, página inicial">
+                    <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+                        <path d="M16 3 6.5 7v7.4C6.5 19.7 10.6 24.3 16 26c5.4-1.7 9.5-6.3 9.5-11.6V7L16 3Z"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                        <path d="m11.4 15.4 3 3.1 6.4-7.4" fill="none" stroke="#F5A524" stroke-width="2.4"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <span class="brand__name">Pro<em>Seg</em></span>
+                </a>
+                <p>Soluções integradas de segurança e energia inteligente para ambientes residenciais,
+                    comerciais e condomínios.</p>
+                <div class="socials">
+                    <a href="#" aria-label="Instagram da ProSeg">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-instagram" />
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="WhatsApp da ProSeg">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-chat" />
+                        </svg>
+                    </a>
+                    <a href="mailto:contato@proseg.io" aria-label="E-mail da ProSeg">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-mail" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div>
+                <p class="footer-title">Navegação</p>
+                <ul class="footer-list">
+                    <li><a href="#solucoes">Soluções</a></li>
+                    <li><a href="#beneficios">Benefícios</a></li>
+                    <li><a href="#plataforma">Plataforma</a></li>
+                    <li><a href="#processo">Como funciona</a></li>
+                    <li><a href="#faq">Dúvidas</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="footer-title">Soluções</p>
+                <ul class="footer-list">
+                    <li><a href="contato.html#assunto">Monitoramento 24/7</a></li>
+                    <li><a href="contato.html#assunto">Câmeras de segurança</a></li>
+                    <li><a href="contato.html#assunto">Alarmes e sensores</a></li>
+                    <li><a href="contato.html#assunto">Controle de acesso</a></li>
+                    <li><a href="contato.html#assunto">Energia inteligente</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <p class="footer-title">Contato</p>
+                <ul class="footer-contact">
+                    <li class="footer-contact__item">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-chat" />
+                        </svg>
+                        <span>(14) 98765-4321</span>
+                    </li>
+                    <li class="footer-contact__item">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-mail" />
+                        </svg>
+                        <span>contato@proseg.io</span>
+                    </li>
+                    <li class="footer-contact__item">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-map-pin" />
+                        </svg>
+                        <span>R. Primavera, 123 · Bosque das Estrelas · Bauru/SP</span>
+                    </li>
+                    <li class="footer-contact__item">
+                        <svg aria-hidden="true" focusable="false">
+                            <use href="#i-clock" />
+                        </svg>
+                        <span>Seg a sáb · 8h às 18h</span>
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div class="beneficio">
-            <img src="img/icone.png" alt="Ícone de verificação">
-            <p>Manutenção grátis durante os 6 primeiros meses.</p>
+        <div class="container site-footer__bottom">
+            <p>&copy; <span data-year>2026</span> ProSeg · Projeto conceitual de fins acadêmicos.</p>
+            <p>Desenvolvido por Pedro Soares</p>
         </div>
+    </footer>
 
-        <div class="beneficio">
-            <img src="img/icone.png" alt="Ícone de verificação">
-            <p>Suporte por WhatsApp com atendimento humanizado.</p>
-        </div>
-
-        <div class="beneficio">
-            <img src="img/icone.png" alt="Ícone de verificação">
-            <p>Instalação de dispositivos de segurança em geral.</p>
-        </div>
-
-        <div class="beneficio">
-            <img src="img/icone.png" alt="Ícone de verificação">
-            <p>Atuação rápida em Bauru e região.</p>
-        </div>
-    </section>
-
-    <div class="imagem-topo">
-        <img src="img/IconeEscudo.png" alt="">
-    </div>
+    <script src="js/main.js" defer></script>
+    <script src="js/dashboard.js" defer></script>
 </body>
 
 </html>
